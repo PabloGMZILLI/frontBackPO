@@ -51,7 +51,7 @@ public class LoginCheck extends HttpServlet {
 		boolean insert = userDao.insert(user);
 		
 		if (insert == true ) {
-			response.sendRedirect("success.jsp");
+			response.sendRedirect("index.jsp");
 		}else {
 			response.sendRedirect("error.jsp");
 		}

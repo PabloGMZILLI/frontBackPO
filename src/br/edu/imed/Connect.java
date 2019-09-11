@@ -14,7 +14,7 @@ public class Connect {
 		try {
 			System.out.println("teste 1");
 
-			String url = "jdbc:sqlite:/home/pablo.zilli/Documents/MyExtensions/NewFolder/OA-2019-02-A6/users";
+			String url = "jdbc:sqlite:/home/pablomzilli/Documents/Faculdade Pablo/P.O. 2/gitFolder/frontBackPO/users";
 
 			conn = DriverManager.getConnection(url);
 			System.out.println("okay");
