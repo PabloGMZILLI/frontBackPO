@@ -15,66 +15,67 @@ UserDao dao = new UserDao();
 <title>Usuarios</title>
 </head>
 <body>
-<a href="index.jsp">Inicio</a>
-
-<div id="fullscreen_bg" class="fullscreen_bg"/>
+<div id="fullscreen_bg" class="fullscreen_bg">
 	<div id="regContainer" class="container">
-      <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-login">
-          <div class="panel-heading">
-            <div class="row">
-              <div class="col-xs-6">
-                <a href="index.jsp" class="active" id="home-link">Inicio</a>
-              </div>
-            </div>
-            <hr>
-          </div>
-          <div class="panel-body">
-            <div class="row">
-              <div class="col-lg-12">
-                <form action="edit" method="post">
-	<table border="1">
-		<tr>
-			<th>
-				Id
-			</th>
-			<th>
-				Name
-			</th>
-			<th>
-				Email
-			</th>
-		</tr>
-		<%
-			List<User> users = dao.getUsers();
-			for(int i=0; i < users.size(); i++){
-		%>
-			<tr>
-				<td> 
-					<%=users.get(i).getId()%>
-				</td>
-				<td>
-					<%=users.get(i).getName()%>
-				</td>
-				<td>
-					<%=users.get(i).getEmail()%>
-				</td>
-				<td>
-					<a href="edit" >Editar</a>
-				</td>
-			</tr>
-		<% } %>
-	</table>
-</form>
-              </div>
-            </div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="index.jsp" class="active" id="home-link">Inicio</a>
+							</div>
+						</div>
+					</div>
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+								<form action="edit" method="post">
+									<table border="1"  class="table">
+										<thead class="thead-light">
+											<tr>
+												<th>
+													Id
+												</th>
+												<th>
+													Name
+												</th>
+												<th>
+													Email
+												</th>
+											</tr>
+										</thead>
+										<tbody>
+											<%
+												List<User> users = dao.getUsers();
+												for(int i=0; i < users.size(); i++){
+											%>
+											<tr>
+												<td> 
+													<%=users.get(i).getId()%>
+												</td>
+												<td>
+													<%=users.get(i).getName()%>
+												</td>
+												<td>
+													<%=users.get(i).getEmail()%>
+												</td>
+												<td>
+													<a href="edit" class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+												</td>
+											</tr>
+											<% } %>
+										</tbody>
+									</table>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 
