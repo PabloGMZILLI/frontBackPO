@@ -50,7 +50,7 @@
   box-shadow: none;
   border-color: #ccc;
 }
-.btn-login {
+.btn-edit {
   background-color:#3D9DB3;
   outline: none;
   color: #fff;
@@ -61,8 +61,8 @@
   text-transform: uppercase;
   border-color: #2d92a9;
 }
-.btn-login:hover,
-.btn-login:focus {
+.btn-edit:hover,
+.btn-edit:focus {
   color: #fff;
   background-color: #198da8;
   border-color: #53A3CD;

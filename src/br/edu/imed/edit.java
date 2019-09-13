@@ -31,7 +31,6 @@ public class edit extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		
 	}
 
 	/**
@@ -39,7 +38,21 @@ public class edit extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		Integer uid = Integer.parseInt(request.getParameter("user_id"));
+		String uname = request.getParameter("user_name");
+		String umail = request.getParameter("user_email");
+		String uphone = request.getParameter("user_phone");
+		
+		User user = new User();
+		user.setId(uid);
+		user.setName(uname);
+		user.setLogin(uname);
+		user.setEmail(umail);
+		user.setPhone(uphone);
+		
+		UserDao userDao = new UserDao();
+		userDao.update(user);
+		response.sendRedirect("viewData.jsp");
 	}
 
 }

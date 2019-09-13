@@ -101,7 +101,6 @@ public class UserDao {
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-
 			stmt.setString(1, user.getName());
 			stmt.setString(2, user.getLogin());
 			stmt.setString(3, user.getEmail());
