@@ -43,6 +43,8 @@ UserDao dao = new UserDao();
 												<th>
 													Email
 												</th>
+												<th>
+												</th>
 											</tr>
 										</thead>
 										<tbody>
@@ -60,8 +62,9 @@ UserDao dao = new UserDao();
 												<td>
 													<%=users.get(i).getEmail()%>
 												</td>
-												<td>
-													<a href="edit" class="glyphicon glyphicon-trash" aria-hidden="true"></a>
+												<td class='edit-td'>
+													<a href="edit?id=<%=users.get(i).getId()%>" class="icons edit glyphicon glyphicon-pencil" aria-hidden="true"></a>
+													<a href="delete?id=<%=users.get(i).getId()%>" onclick="return confirmDelete(<%=users.get(i).getId()%>);" class="icons delete glyphicon glyphicon-trash" aria-hidden="true"></a>						
 												</td>
 											</tr>
 											<% } %>
@@ -78,5 +81,10 @@ UserDao dao = new UserDao();
 </div>
 
 </body>
+<script>
+	function confirmDelete(id){
+		return confirm("Deseja realmente excluir o usuário id " + id + "?")		
+	}
+</script>
 
 </html>
