@@ -50,6 +50,11 @@
   box-shadow: none;
   border-color: #ccc;
 }
+.message{
+    color: red;
+    margin-left: 2%;
+    margin-top: 2%;
+}
 .btn-edit {
   background-color:#3D9DB3;
   outline: none;
