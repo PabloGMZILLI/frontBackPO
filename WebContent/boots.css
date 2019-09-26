@@ -55,6 +55,9 @@
     margin-left: 2%;
     margin-top: 2%;
 }
+.space {
+	margin-top: 30px;
+}
 .btn-edit {
   background-color:#3D9DB3;
   outline: none;

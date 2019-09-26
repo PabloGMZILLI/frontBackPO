@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, br.edu.imed.*"%>
 <%
-	UserDao dao = new UserDao();
+	ProductDao dao = new ProductDao();
 %>
 
 <!DOCTYPE html>
@@ -15,7 +15,7 @@
 <link rel="stylesheet" type="text/css" href="boots.css">
 <script
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<title>Editar Usuario</title>
+<title>Editar Produto</title>
 </head>
 <body>
 	<div id="fullscreen_bg" class="fullscreen_bg">
@@ -34,26 +34,26 @@
 							<div class="row">
 								<div class="col-lg-12">
 									<%
-										User user = dao.select(Integer.parseInt(request.getParameter("id")));
+										Product product = dao.select(Integer.parseInt(request.getParameter("id")));
 									%>
 									<form id="edit-form" action="edit" method="post" role="form"
 										style="display: block;">
-										<input type="text" style="display:none" name="user_id" value=<%=user.getId()%> >
+										<input type="text" style="display:none" name="product_id" value=<%=product.getId()%> >
 										<div class="form-group">
 											<label for="username">Username</label> <input type="text"
-												name="user_name" value=<%=user.getName()%> id="username"
+												name="product_name" value=<%=product.getName()%> id="username"
 												tabindex="1" class="form-control" placeholder="Username"
 												>
 										</div>
 										<div class="form-group">
-											<label for="email">Email</label> <input type="text"
-												name="user_email" value=<%=user.getEmail()%> id="email"
+											<label for="email">Type</label> <input type="text"
+												name="product_email" value=<%=product.getType()%> id="email"
 												tabindex="1" class="form-control"
 												placeholder="email@email.com" >
 										</div>
 										<div class="form-group">
-											<label for="phone">Telefone</label> <input type="text"
-												name="user_phone" value=<%=user.getPhone()%> 
+											<label for="phone">Stock</label> <input type="text"
+												name="product_phone" value=<%=product.getStock()%> id="phone"
 												tabindex="1" class="form-control"
 												placeholder="(54) 999999999" >
 										</div>

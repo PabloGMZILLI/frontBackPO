@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="java.util.*, br.edu.imed.*" %>
 <%
-UserDao dao = new UserDao();
+ProductDao dao = new ProductDao();
 %>
     
 <!DOCTYPE html>
@@ -43,30 +43,49 @@ UserDao dao = new UserDao();
 													Name
 												</th>
 												<th>
-													Email
+													Type
+												</th>
+												<th>
+													Stock
+												</th>
+												<th>
+													Price
+												</th>
+												<th>
+													CD
 												</th>
 												<th>
 												</th>
+												
 											</tr>
 										</thead>
 										<tbody>
 											<%
-												List<User> users = dao.getUsers();
-												for(int i=0; i < users.size(); i++){
+												List<Product> products = dao.getProducts();
+												for(int i=0; i < products.size(); i++){
 											%>
 											<tr>
 												<td> 
-													<%=users.get(i).getId()%>
+													<%=products.get(i).getId()%>
 												</td>
 												<td>
-													<%=users.get(i).getName()%>
+													<%=products.get(i).getName()%>
 												</td>
 												<td>
-													<%=users.get(i).getEmail()%>
+													<%=products.get(i).getType()%>
+												</td>
+												<td>
+													<%=products.get(i).getStock()%>
+												</td>
+												<td>
+													<%=products.get(i).getPrice()%>
+												</td>
+												<td>
+													<%=products.get(i).getLocale()%>
 												</td>
 												<td class='edit-td'>
-													<a href="editPage.jsp?id=<%=users.get(i).getId()%>" class="icons edit glyphicon glyphicon-pencil" aria-hidden="true"></a>
-													<a href="delete?id=<%=users.get(i).getId()%>" onclick="return confirmDelete(<%=users.get(i).getId()%>);" class="icons delete glyphicon glyphicon-trash" aria-hidden="true"></a>						
+													<a href="editProductPage.jsp?id=<%=products.get(i).getId()%>" class="icons edit glyphicon glyphicon-pencil" aria-hidden="true"></a>
+													<a href="deleteProduct?id=<%=products.get(i).getId()%>" onclick="return confirmDelete(<%=products.get(i).getId()%>);" class="icons delete glyphicon glyphicon-trash" aria-hidden="true"></a>						
 												</td>
 											</tr>
 											<% } %>
@@ -85,7 +104,7 @@ UserDao dao = new UserDao();
 </body>
 <script>
 	function confirmDelete(id){
-		return confirm("Deseja realmente deletar o usuário id " + id + " ?")		
+		return confirm("Deseja realmente remover o produto id " + id + "?")		
 	}
 </script>
 

@@ -6,18 +6,17 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class Connect {
+public class ConnectProducts {
 
 	public static Connection connect() {
 		Connection conn = null;
 
 		try {
-			System.out.println("teste 1");
-
-			String url = "jdbc:sqlite:/home/pablomzilli/Documents/FaculdadePablo/P.O. 2/gitFolder/frontBackPO/users";
+			System.out.println("foi");
+			String url = "jdbc:sqlite:/home/pablomzilli/Documents/FaculdadePablo/P.O. 2/gitFolder/frontBackPO/products";
 
 			conn = DriverManager.getConnection(url);
-			System.out.println("Table Users");
+			System.out.println("Table Products");
 
 
 		} catch (SQLException e) {
@@ -36,7 +35,8 @@ public class Connect {
 		}
 	}
 	public static void main(String[] args) {
-		Connect.connect();
+		ConnectProducts.connect();
 		
 	}
 }
+

@@ -1,6 +1,8 @@
 package br.edu.imed;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,16 +10,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class LoginCheck
+ * Servlet implementation class edit
  */
-@WebServlet("/LoginCheck")
-public class LoginCheck extends HttpServlet {
+@WebServlet("/edit")
+public class editProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginCheck() {
+    public editProduct() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,7 +29,8 @@ public class LoginCheck extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at teste!: ").append(request.getContextPath());
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
 	}
 
 	/**
@@ -35,26 +38,24 @@ public class LoginCheck extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-		String uname = request.getParameter("user_name");
-		String umail = request.getParameter("user_email");
-		String uphone = request.getParameter("user_phone");
-		String pass = request.getParameter("user_password");
-		User user = new User();
-		user.setName(uname);
-		user.setLogin(uname);
-		user.setEmail(umail);
-		user.setPhone(uphone);
-		user.setPassword(pass);
+		Integer pid = Integer.parseInt(request.getParameter("id"));
+		String name = request.getParameter("product_name");
+		String type = request.getParameter("product_type");
+		String stock = request.getParameter("product_stock");
+		String price = request.getParameter("product_price");
+		String cd = request.getParameter("product_cd");
 		
-		UserDao userDao = new UserDao();
-		boolean insert = userDao.insert(user);
+		Product product = new Product();
+		product.setId(pid);
+		product.setName(name);
+		product.setType(type);
+		product.setStock(stock);
+		product.setPrice(price);
+		product.setLocale(cd);
 		
-		if (insert == true ) {
-			response.sendRedirect("index.jsp");
-		}else {
-			response.sendRedirect("error.jsp");
-		}
+		ProductDao productDao = new ProductDao();
+		productDao.update(product);
+		response.sendRedirect("viewProducts.jsp");
 	}
 
 }
