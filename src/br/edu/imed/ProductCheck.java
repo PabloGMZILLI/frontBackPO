@@ -39,12 +39,15 @@ public class ProductCheck extends HttpServlet {
 		String stock = request.getParameter("product_stock");
 		String price = request.getParameter("product_price");
 		String cd = request.getParameter("product_cd");
+		String img = request.getParameter("product_img");
+		
 		Product product = new Product();
 		product.setName(name);
 		product.setType(type);
 		product.setStock(stock);
 		product.setPrice(price);
 		product.setLocale(cd);
+		product.setImage(img);
 		
 		ProductDao productDao = new ProductDao();
 		boolean insert = productDao.insert(product);

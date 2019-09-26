@@ -40,6 +40,8 @@ ProductDao dao = new ProductDao();
 													Id
 												</th>
 												<th>
+												</th>
+												<th>
 													Name
 												</th>
 												<th>
@@ -63,10 +65,14 @@ ProductDao dao = new ProductDao();
 											<%
 												List<Product> products = dao.getProducts();
 												for(int i=0; i < products.size(); i++){
+												System.out.println(products.get(i).getImage());
 											%>
 											<tr>
 												<td> 
 													<%=products.get(i).getId()%>
+												</td>
+												<td> 
+													<img src="<%=products.get(i).getImage()%>" style="width: 70px; height: 70px;" alt="Product Image">
 												</td>
 												<td>
 													<%=products.get(i).getName()%>

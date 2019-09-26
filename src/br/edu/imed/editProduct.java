@@ -38,12 +38,13 @@ public class editProduct extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Integer pid = Integer.parseInt(request.getParameter("id"));
+		Integer pid = Integer.parseInt(request.getParameter("product_id"));
 		String name = request.getParameter("product_name");
 		String type = request.getParameter("product_type");
 		String stock = request.getParameter("product_stock");
 		String price = request.getParameter("product_price");
-		String cd = request.getParameter("product_cd");
+		String cd = request.getParameter("product_locale");
+		String img = request.getParameter("product_img");
 		
 		Product product = new Product();
 		product.setId(pid);
@@ -52,6 +53,7 @@ public class editProduct extends HttpServlet {
 		product.setStock(stock);
 		product.setPrice(price);
 		product.setLocale(cd);
+		product.setImage(img);
 		
 		ProductDao productDao = new ProductDao();
 		productDao.update(product);

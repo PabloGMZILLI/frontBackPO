@@ -3,6 +3,7 @@ package br.edu.imed;
 public class Product {
 
 	private Integer id;
+	private String image;
 	private String name;
 	private String type;
 	private String stock;
@@ -14,6 +15,12 @@ public class Product {
 	}
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	public String getImage() {
+		return image;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public String getName() {
 		return name;

@@ -26,7 +26,7 @@
 						<div class="panel-heading">
 							<div class="row">
 								<div class="col-xs-6">
-									<a href="index.jsp" class="active" id="home-link">Inicio</a>
+									<a href="index.jsp" class="active" id="home-link">Voltar</a>
 								</div>
 							</div>
 						</div>
@@ -36,23 +36,38 @@
 									<%
 										Product product = dao.select(Integer.parseInt(request.getParameter("id")));
 									%>
-									<form id="edit-form" action="edit" method="post" role="form"
+									<form id="edit-form" action="editProduct" method="post" role="form"
 										style="display: block;">
 										<input type="text" style="display:none" name="product_id" value=<%=product.getId()%> >
 										<div class="form-group">
-											<label for="username">Username</label> <input type="text"
+											<label for="product_name">Username</label> <input type="text"
 												name="product_name" value=<%=product.getName()%>
 												tabindex="1" class="form-control">
 										</div>
 										<div class="form-group">
-											<label for="email">Type</label> <input type="text"
+											<label for="product_type">Type</label> <input type="text"
 												name="product_type" value=<%=product.getType()%>
 												tabindex="1" class="form-control">
 										</div>
 										<div class="form-group">
-											<label for="phone">Stock</label> <input type="text"
+											<label for="product_stock">Stock</label> <input type="text"
 												name="product_stock" value=<%=product.getStock()%>
 												tabindex="1" class="form-control">
+										</div>
+										<div class="form-group">
+											<label for="product_price">Price</label> <input type="text"
+												name="product_price" value=<%=product.getPrice()%>
+												tabindex="1" class="form-control">
+										</div>
+										<div class="form-group col-xs-6">
+											<label for="product_locale">CD</label> <input type="text"
+												name="product_locale" value=<%=product.getLocale()%>
+												tabindex="1" class="form-control">
+										</div>
+										<div class="form-group col-xs-6">
+										<label for="product_img">Product Image URL</label> <input type="text"
+											name="product_img" class="form-control" value=<%=product.getImage()%>
+											placeholder="img url">
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

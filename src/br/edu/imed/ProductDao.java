@@ -10,7 +10,7 @@ import java.util.List;
 public class ProductDao {
 
 	public boolean insert(Product product) {
-		String sql = "insert into products " + "(name, type, stock, price, locale) " + "values	(?, ?, ?, ?, ?)";
+		String sql = "insert into products " + "(name, type, stock, price, locale, url_img) " + "values	(?, ?, ?, ?, ?, ?)";
 
 		Connection connection = ConnectProducts.connect();
 
@@ -24,6 +24,7 @@ public class ProductDao {
 			stmt.setString(3, product.getStock());
 			stmt.setString(4, product.getPrice());
 			stmt.setString(5, product.getLocale());
+			stmt.setString(6, product.getImage());
 
 			stmt.execute();
 
@@ -60,6 +61,7 @@ public class ProductDao {
 				product.setStock(rs.getString("stock"));
 				product.setPrice(rs.getString("price"));
 				product.setLocale(rs.getString("locale"));
+				product.setImage(rs.getString("url_img"));
 
 				products.add(product);
 			}
@@ -95,17 +97,19 @@ public class ProductDao {
 
 	public boolean update(Product product) {
 
-		String sql = "update products set name=?, type=?, stock=?, price=? where id=?";
+		String sql = "update products set name=?, type=?, stock=?, price=?, locale=?, url_img=? where id=?";
 		Connection connection = ConnectProducts.connect();
 		PreparedStatement stmt;
 		try {
 			stmt = connection.prepareStatement(sql);
-			stmt.setInt(1, product.getId());
-			stmt.setString(2, product.getName());
-			stmt.setString(3, product.getType());
-			stmt.setString(4, product.getStock());
-			stmt.setString(5, product.getPrice());
-			stmt.setString(6, product.getLocale());
+			
+			stmt.setString(1, product.getName());
+			stmt.setString(2, product.getType());
+			stmt.setString(3, product.getStock());
+			stmt.setString(4, product.getPrice());
+			stmt.setString(5, product.getLocale());
+			stmt.setString(6,product.getImage());
+			stmt.setInt(7, product.getId());
 
 			stmt.execute();
 
@@ -143,7 +147,8 @@ public class ProductDao {
 			product.setStock(rs.getString("stock"));
 			product.setPrice(rs.getString("price"));
 			product.setLocale(rs.getString("locale"));
-
+			product.setImage(rs.getString("url_img"));
+			
 			stmt.close();
 			ConnectProducts.close(connection);
 

@@ -37,29 +37,34 @@
 								<form id="register-form" name="register-form"
 									action="ProductCheck" method="post" role="form"
 									style="display: block;">
-									<div class="form-group">
-										<label for="product_name">Product Name</label> <input type="text"
+									<div class="form-group col-xs-6">
+										<label for="product_name col-xs-6">Product Name</label> <input type="text"
 											name="product_name"class="form-control"
 											placeholder="Televisão">
 									</div>
-									<div class="form-group">
+									<div class="form-group col-xs-6">
 										<label for="product_type">Type</label> <input type="text"
 											name="product_type" placeholder="Eletronico" class="form-control">
 									</div>
-									<div class="form-group">
+									<div class="form-group col-xs-6">
 										<label for="product_stock">Stock</label> <input type="text"
 											maxlength="15" placeholder="00" name="product_stock"
 											class="form-control">
 									</div>
-									<div class="form-group">
+									<div class="form-group col-xs-6">
 										<label for="product_price">Price</label> <input type="text"
 											name="product_price" class="form-control"
 											placeholder="R$ 50,00">
 									</div>
-									<div class="form-group">
+									<div class="form-group col-xs-6">
 										<label for="product_cd">CD</label> <input type="text"
 											name="product_cd" class="form-control"
 											placeholder="CD_00">
+									</div>
+									<div class="form-group col-xs-6">
+										<label for="product_img">Product Image URL</label> <input type="text"
+											name="product_img" class="form-control"
+											placeholder="img url">
 									</div>
 									<label class='message'></label>
 									<div class="row">
