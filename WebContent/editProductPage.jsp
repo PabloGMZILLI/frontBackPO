@@ -41,21 +41,18 @@
 										<input type="text" style="display:none" name="product_id" value=<%=product.getId()%> >
 										<div class="form-group">
 											<label for="username">Username</label> <input type="text"
-												name="product_name" value=<%=product.getName()%> id="username"
-												tabindex="1" class="form-control" placeholder="Username"
-												>
+												name="product_name" value=<%=product.getName()%>
+												tabindex="1" class="form-control">
 										</div>
 										<div class="form-group">
 											<label for="email">Type</label> <input type="text"
-												name="product_email" value=<%=product.getType()%> id="email"
-												tabindex="1" class="form-control"
-												placeholder="email@email.com" >
+												name="product_type" value=<%=product.getType()%>
+												tabindex="1" class="form-control">
 										</div>
 										<div class="form-group">
 											<label for="phone">Stock</label> <input type="text"
-												name="product_phone" value=<%=product.getStock()%> id="phone"
-												tabindex="1" class="form-control"
-												placeholder="(54) 999999999" >
+												name="product_stock" value=<%=product.getStock()%>
+												tabindex="1" class="form-control">
 										</div>
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">

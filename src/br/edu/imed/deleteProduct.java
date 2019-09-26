@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class delete
  */
-@WebServlet("/delete")
+@WebServlet("/deleteProduct")
 public class deleteProduct extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,7 +26,7 @@ public class deleteProduct extends HttpServlet {
 		// TODO Auto-generated method stub
 		response.getWriter().append("Served at: ").append(request.getContextPath());
 		
-		UserDao dao = new UserDao();
+		ProductDao dao = new ProductDao();
 		String id = request.getParameter("id");
 		dao.delete(Integer.parseInt(id));
 		response.sendRedirect("viewProducts.jsp");
