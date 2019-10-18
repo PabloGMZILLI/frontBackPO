@@ -23,6 +23,9 @@
 					<div class="panel-heading">
 						<div class="row">
 							<div class="col-xs-6">
+								<a href="login.jsp" class="active" id="user-list-link">Logar</a>
+							</div>
+							<div class="col-xs-6">
 								<a href="viewData.jsp" class="active" id="user-list-link">Lista
 									de Usuarios</a>
 							</div>

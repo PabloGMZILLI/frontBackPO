@@ -3,6 +3,7 @@
 <%@ page import="java.util.*, br.edu.imed.*" %>
 <%
 UserDao dao = new UserDao();
+
 %>
     
 <!DOCTYPE html>

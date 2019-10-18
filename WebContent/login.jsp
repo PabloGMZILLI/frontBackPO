@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8" session="false"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,7 +15,7 @@
 	src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 <script src="./validation.js"></script>
 
-<title>Insert title here</title>
+<title>Login</title>
 </head>
 <body>
 	<div id="fullscreen_bg" class="fullscreen_bg" />
@@ -34,44 +34,33 @@
 					<div class="panel-body">
 						<div class="row">
 							<div class="col-lg-12">
-								<form id="register-form" name="register-form"
-									action="RegisterCheck" method="post" role="form"
+								<form id="login-form" name="login-form"
+									action="LoginCheck" method="post" role="form"
 									onsubmit="return validateForm()" style="display: block;">
 									<div class="form-group">
 										<label for="username">Username</label> <input type="text"
 											name="user_name" id="user_name" class="form-control"
 											placeholder="Username">
 									</div>
-									<div class="form-group">
-										<label for="email">Email</label> <input type="email"
-											name="user_email" id="user_email" class="form-control"
-											placeholder="email@email.com">
-									</div>
-									<div class="form-group">
-										<label for="phone">Telefone</label> <input type="tel"
-											maxlength="15" placeholder="(99)99999-9999" name="user_phone"
-											id="user_phone" class="form-control" placeholder="(54) 999999999">
-									</div>
-									<div class="form-group">
-										<label for="password">Password</label> <input type="password"
-											name="user_password" id="user_password" class="form-control"
-											placeholder="Password">
-									</div>
-									<label class='message'></label>
-									<div class="row">
-										<div class="col-sm-6 col-sm-offset-3">
-											<input type="submit" name="register-submit"
-												id="register-submit" class="form-control btn btn-register"
-												value="Register Now">
-										</div>
-									</div>
-								</form>
+									<label for="password">Password</label> <input type="password"
+										name="user_password" id="user_password" class="form-control"
+										placeholder="Password">
 							</div>
+							<label class='message'></label>
+							<div class="row">
+								<div class="col-sm-6 col-sm-offset-3">
+									<input type="submit" name="login-submit"
+										id="login-submit" class="form-control btn btn-login"
+										value="Login">
+								</div>
+							</div>
+							</form>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 	</div>
 </body>

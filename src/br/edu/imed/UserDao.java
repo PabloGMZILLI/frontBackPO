@@ -156,4 +156,33 @@ public class UserDao {
 
 	}
 
+public Boolean login(String login, String password) {
+	String sql = "select * from users where login=? and password=? ";
+
+	Connection connection = Connect.connect();
+
+	PreparedStatement stmt;
+
+	try {
+		stmt = connection.prepareStatement(sql);
+
+		stmt.setString(1, login);
+		stmt.setString(2, password);
+		
+		stmt.execute();
+
+		ResultSet rs = stmt.executeQuery();
+		stmt.close();
+		Connect.close(connection);
+	
+		return true;
+
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	return false;
+
+}
+
 }

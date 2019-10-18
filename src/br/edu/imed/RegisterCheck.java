@@ -6,20 +6,18 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-import javax.websocket.SendResult;
 
 /**
- * Servlet implementation class LoginCheck
+ * Servlet implementation class RegisterCheck
  */
-@WebServlet("/LoginCheck")
-public class LoginCheck extends HttpServlet {
+@WebServlet("/RegisterCheck")
+public class RegisterCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginCheck() {
+    public RegisterCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -38,23 +36,26 @@ public class LoginCheck extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		String uname = request.getParameter("user_name").toLowerCase();
+		String uname = request.getParameter("user_name");
+		String ulogin = request.getParameter("user_name").toLowerCase();
+		String umail = request.getParameter("user_email");
+		String uphone = request.getParameter("user_phone");
 		String pass = request.getParameter("user_password");
-
+		User user = new User();
+		user.setName(uname);
+		user.setLogin(ulogin);
+		user.setEmail(umail);
+		user.setPhone(uphone);
+		user.setPassword(pass);
+		
 		UserDao userDao = new UserDao();
-		boolean loginSuccess = userDao.login(uname, pass);
-
-		HttpSession session = request.getSession(true);
-		session.setAttribute("user", uname);
-		session.setAttribute("autorizado", true);
+		boolean insert = userDao.insert(user);
 		
-		if (loginSuccess) {
+		if (insert == true ) {
 			response.sendRedirect("index.jsp");
-		} else {
-			response.sendRedirect("withoutPermission.jsp");
+		}else {
+			response.sendRedirect("error.jsp");
 		}
-		session.setMaxInactiveInterval(30);
-		session.getAttributeNames();
-		
 	}
+
 }

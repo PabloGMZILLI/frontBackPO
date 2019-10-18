@@ -12,7 +12,7 @@ public class ConnectProducts {
 		Connection conn = null;
 
 		try {
-			String url = "jdbc:sqlite:/home/pablo.zilli/Documents/MyExtensions/frontBackPO/products";
+			String url = "jdbc:sqlite:/home/pablomzilli/Documents/FaculdadePablo/P.O. 2/gitFolder/frontBackPO/products";
 
 			conn = DriverManager.getConnection(url);
 			System.out.println("Table Products");
